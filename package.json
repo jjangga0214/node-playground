@@ -1,0 +1,11 @@
+{
+  "name": "node-playground",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/jjangga0214/node-playground.git",
+  "author": "jjangga <jjangga@kookmin.ac.kr>",
+  "license": "MIT",
+  "dependencies": {
+    "esm": "^3.0.84"
+  }
+}
