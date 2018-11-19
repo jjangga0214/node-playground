@@ -76,8 +76,7 @@ async function run() {
   } catch (error) {
     console.log(error);
   }
-};
-
+}
 run();
 
 /**
