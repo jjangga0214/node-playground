@@ -5,4 +5,4 @@
  * .mjs 이던 .js 이던 모두 동작한다.
  */
 require = require('esm')(module); // 참고 : https://github.com/standard-things/esm
-module.exports = require('./module/func'); // 여기가 실질적인 entry 포인트가 된다.
+module.exports = require('./module/importing'); // 여기가 실질적인 entry 포인트가 된다.
