@@ -20,13 +20,13 @@ const arr3 = [Promise.resolve(1), Promise.resolve(2), Promise.reject(3), Promise
  *     err: 3
  *     4
  */
-arr1.forEach(async (promise) => {
-    try {
-        console.log(await promise);
-    } catch (err) {
-        console.log('err:', err);
-    }
-});
+// arr1.forEach(async (promise) => {
+//     try {
+//         console.log(await promise);
+//     } catch (err) {
+//         console.log('err:', err);
+//     }
+// });
 
 /**
  * 2. CaG : Control as Group
@@ -36,13 +36,15 @@ arr1.forEach(async (promise) => {
  *   result of the code below: 
  *     err: 3
  */
-// Promise.all(arr2)
-//     .then((value) => {
-//         console.log(value);
-//     })
-//     .catch((err) => {
-//         console.log('err:', err);
-//     });
+Promise.all(arr2)
+    .then((arr2_) => {
+        for (const val of arr2_) {
+            console.log(val);
+        }
+    })
+    .catch((err) => {
+        console.log('err:', err);
+    });
 
 /**
  * 3. CaS : Control as Sequence
