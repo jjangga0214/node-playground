@@ -1,0 +1,30 @@
+{
+  "markdown-pdf.styles": [
+    "~/문서/config/style/gfm.css"
+  ],
+  "diffEditor.ignoreTrimWhitespace": true,
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "'D2Coding ligature','Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  //"editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "window.zoomLevel": 0,
+  "vetur.validation.template": false,
+  "vetur.completion.useScaffoldSnippets": false,
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [{
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+  ],
+  "explorer.confirmDelete": false
+}
