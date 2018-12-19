@@ -100,4 +100,23 @@ node 에 `--experimental-modules` 등과 같은 parameter 를 넣기 위해서 r
 ##### 프로젝트 안의 여러 파일들에 대한 공통 설정은 다음과 같이 할 수 있다.
 ![종합 템플릿 파일설정](./image/2.png)
 
+## ESlint 
+WebStorm 은 프로젝트의 node_modules 에서 eslint 를 인지하고, package.json 또는 .eslintrc.* 에서 설정을 인지한다. 그러나 기본적으로 `eslint --fix $FILE$` 을 적용하려면 에디터에서 마우스 우클릭 -> Fix ESlint Problems 를 클릭해야하기 때문에 해당 설정을 바꾸어 줄 필요가 있다. 기본적으로 단축키를 설정하는 방법과, 저장시 자동 적용(auto fix on save)되게 하는 2가지 방법 중 하나를 택하면 좋다.
+
+### 단축키 지정
+만약 WebStorm 의 기본인 자동저장을 사용하고 있다면, Ctrl + S 를 eslint 를 적용하는 단축키로 설정하는 것이 좋겠다. **Keymap**(*Settings -> Keymap*) 에서 eslint 를 검색하여 단축키를 지정해준다. 
+![eslint shortcut config](./image/6.png)
+ 
+### auto fix on save
+WebStorm은 기본이 자동저장이지만, 이를 해제한 상태라면 명시적으로 저장(Ctrl + S 등) 이벤트 발생시 eslint 가 같이 적용되도록 하면 좋다. line 하나로 auto fix on save 를 설정할 수 있는 vscode 와 달리 WebStorm 에서는 save 이벤트 기반 작업을 설정한다. **File Watcher**(*Settings -> Tools -> File Watcher*) 에서 다음과 같이 설정하면 된다. 
+![File Watcher 설정](./image/5.png)
+위 스크린샷에서는 Vue 파일을 기준으로 설정했으나, javascript 파일도 추가해준다.
+##### 인자
+* $ProjectFileDir$/node_modules/.bin/eslint
+* --fix $FilePath$
+* $FileDir$
+
+
+
+
 
