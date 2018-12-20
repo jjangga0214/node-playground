@@ -6,19 +6,21 @@
 ![keymap](./image/3.png)
 
 ## Live Templates
-Settings -> Editor -> Live Templates -> Javascript
+Settings -> Editor -> Live Templates
 ![Live Template 생성](./image/4.png)
 
 ### Principle
 * `$변수$` 로 커서를 잡는다. `$END$`는 가장 마지막 enter 키의 커서를 잡는다.
 * 'Edit variables' 를 클릭해 변수들을 설정한다. 아래 table 에서 [x] 는 check(v) 하라는 의미이다.
 
-### *co* -> `console.log`
+### Javascript
+
+#### *co* -> `console.log`
 ```js
 console.log($END$);
 ```
 
-### *tr* -> try catch block
+#### *tr* -> try catch block
 ```js
 try{
     $END$
@@ -27,7 +29,7 @@ try{
 }
 ```
 
-### *im* -> importitems
+#### *im* -> importitems
 * 이미 존재하는 live template 인 "importitems"를 추가로 복사한다.
 * Edit Variable 도 "importitems"의 것으로 한다.
 * 단 쌍따옴표 대신 따옴표를 사용한다.
@@ -38,14 +40,14 @@ import {$ITEM$} from '$MODULE$';
 $END$
 ```
 
-### *imm* -> importdefault
+#### *imm* -> importdefault
 "importdefault" 을 복사하되, *im*과 같은 조건으로 한다.
 ```js
 import $ITEM$ from '$MODULE$';
 $END$
 ```
 
-### *af* -> arrow function
+#### *af* -> arrow function
 |  Name |        Expression       | Default value | Skip if defined |
 |:-----:|:-----------------------:|:-------------:|:---------------:|
 | PARAM | jsSuggestVariableName() |               |                 |
@@ -56,7 +58,7 @@ $END$
 }
 ```
 
-### *ii* -> IIFE
+#### *ii* -> IIFE
 Variable 설정은 *af* 와 같게 한다.
 ```js
 (($PARAM$) => {
@@ -64,7 +66,7 @@ Variable 설정은 *af* 와 같게 한다.
 })($PARAM$);
 ```
 
-### *iia* -> async IIFE
+#### *iia* -> async IIFE
 Variable 설정은 *af* 와 같게 한다.
 ```js
 (async ($PARAM$) => {
@@ -72,7 +74,7 @@ Variable 설정은 *af* 와 같게 한다.
 })($PARAM$);
 ```
 
-### *itera* -> for await
+#### *itera* -> for await
 * 'reformat according to style' 을 선택하지 않는다.
 
 |   Name  |           Expression           | Default value | Skip if defined |
@@ -87,9 +89,31 @@ for await ($VARKIND$ $VAR$ of $ARRAY$) {
 }
 ```
 
-
-### *afe*
+#### *afe*
 Javascript Testing 에서 *af*(Inserts afterEach() block) 에 해당하던 것을 *afe* 로 바꾸어준다.
+
+#### *ed*
+```js
+export default {
+  $1$
+}
+```
+
+### Vue
+
+#### rl 
+```html
+<router-link to="">$LINK$</router-link>
+```
+#### *vlp*
+```html
+<router-link :to="{ name: '$NAME$' }">$LINK$</router-link>
+```
+
+#### *vlp*
+```html
+<router-link :to="{ name: '$NAME$', params: { $KEY$: $VALUE$ } }">$LINK$</router-link>
+```
 
 ## run configuration
 node 에 `--experimental-modules` 등과 같은 parameter 를 넣기 위해서 run configuration 설정이 필요하다.
@@ -111,6 +135,7 @@ WebStorm 은 프로젝트의 node_modules 에서 eslint 를 인지하고, packag
 WebStorm은 기본이 자동저장이지만, 이를 해제한 상태라면 명시적으로 저장(Ctrl + S 등) 이벤트 발생시 eslint 가 같이 적용되도록 하면 좋다. line 하나로 auto fix on save 를 설정할 수 있는 vscode 와 달리 WebStorm 에서는 save 이벤트 기반 작업을 설정한다. **File Watcher**(*Settings -> Tools -> File Watcher*) 에서 다음과 같이 설정하면 된다. 
 ![File Watcher 설정](./image/5.png)
 위 스크린샷에서는 Vue 파일을 기준으로 설정했으나, javascript 파일도 추가해준다.
+
 ##### 인자
 * $ProjectFileDir$/node_modules/.bin/eslint
 * --fix $FilePath$
